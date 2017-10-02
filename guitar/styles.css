@@ -1,0 +1,9 @@
+#eachProduct {
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    width: 45%;
+    height:410px;
+    margin: 10px;   
+    float: left;       
+}
