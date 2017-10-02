@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script> 
+  <script src="app.js"></script> 
+  <script src="mainController.js"></script>
+</head>
+<body >
+    <div ng-app = "myApp" ng-controller="mainController">
+        {{color}}        
+        <input type="text" ng-model="name">        
+        <h1>{{name}}</h1>
+    
+        <div ng-controller="mainController1">
+            <h1>{{firstName}}</h1>
+            {{color}}
+        </div>
+        <div ng-controller="mainController2">
+            <h2>{{lastName}}</h2>
+            {{color}}
+        </div>
+        <div ng-controller="mainController3">
+            <h3>{{occupation}}</h3>
+        </div>
+        <br>
+        <br>    
+        <p>Learning 2 way data binding from below on-------------------------------------------------------------------------</p>
+            <div ng-controller="ctrl4">
+                <input type = "text" ng-model="x">
+                <h1>{{x}}</h1>
+                <button ng-click="show1()">ClickMe To Change</button>
+                <br>
+                <br>
+                <p>------Way to add elements inside array--------------------------------------------------------------------------------------------------------------------------------</p>
+                
+                <input type = "text" ng-model="y">
+                <h1>{{y}}</h1>
+                {{arr}}
+                <br>
+                <button ng-click="show2(y)">ClickMe To Add</button>
+            </div>  
+            
+            <p>ng-SHOW in action to alternate between hide and show BELOW---------------------------------------------------------------------------------------------------------------------</p>
+            <div ng-controller="ctrl5">
+                <p ng-show="check">Hellloooooooooooooooooo</p>
+                <button ng-click="change()">Click here to Hide/Show</button>
+            </div>
+        
+            <p>NG-HREF in action below----------------------------------------------------------------------------------------------------</p>
+            <div ng-controller="ctrl6">
+                <a ng-href='{{url}}'>{{siteName}}</a>
+                <button ng-click="change2()">Click to Switch</button>
+            </div>
+
+            <p>ng-REPEAT in action below_____________________________________________________________________________________________</p>
+            <div ng-controller="ctrl7">
+                <ul>
+                    <li ng-repeat="varName in arr">
+                        {{varName}}
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <br>
+            <p>Filters in action below_____________________________________________________________________________________________</p>
+            <div ng-controller="ctrl8">
+                <p>UPPERCASE filter in action below~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+                    <ul>
+                        <li ng-repeat=" x in arr2">
+                            {{x | uppercase}}
+                        </li>
+                    </ul>
+                <p>orderBy filter in action below~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+                    <ul>
+                        <li ng-repeat="y in arr3 | orderBy: 'country'">
+                            {{y.name + "  " + y.country}}
+                        </li>
+                    </ul>
+                    <p>FILTER filter in action below~~~ using input tag as search criteria~~~~~~~~~~~~~~~</p>
+                    <ul>
+                        <input type="text" placeholder="Search Here" ng-model="input">
+                        <li ng-repeat="z in arr4 | filter: input">
+                            {{z}}
+                        </li>
+                    </ul>
+            </div>           
+
+    </div>
+</body>
+</html>
